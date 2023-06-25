@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['study-production-924d.up.railway.app']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
