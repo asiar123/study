@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 from django.urls import reverse_lazy
 
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +29,7 @@ SECRET_KEY = 'django-insecure-kl3_+dd(va#6^i0*os^1z$*!^56g*@sd5(9^4(5i5$fg&w1)u&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['study-production-924d.up.railway.app']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -80,14 +82,7 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',
-        'USER': 'root',
-        'PASSWORD': 'CiIWanKzAF4kgZiPBZs0',
-        'HOST': 'containers-us-west-98.railway.app',
-        'PORT': 6152
-    }
+        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 # Password validation
